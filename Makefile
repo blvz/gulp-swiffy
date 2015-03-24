@@ -1,21 +1,22 @@
-LSC=node_modules/LiveScript/bin/lsc
-VOWS=node_modules/vows/bin/vows
-default: metadata compile test
+default: all
 
-compile: deps src/*.ls
+LSC=./node_modules/LiveScript/bin/lsc
+
+all: build
+
+metadata: package.json.ls
+	@ [ -f "$(LSC)" ] || npm install LiveScript
+	@ $(LSC) -c *.json.ls
+
+build: metadata src/*.ls
 	@for f in src/*.ls; do \
 		p=$${f%/*} ; \
 		[[ $$p == src ]] && p='' ; \
 		$(LSC) -c $$f -o ./$${p#*/} ; \
 	done
 
-test: compile test/*
-	@$(VOWS) --spec test/runner.js
+test: build
+	@ $(LSC) test/*.ls
 
-metadata: *.json.ls
-	@$(LSC) -c *.json.ls
-
-deps: metadata
-	@npm install
-
-.PHONY: test
+install: metadata
+	@ npm install
