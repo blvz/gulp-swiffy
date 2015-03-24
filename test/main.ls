@@ -21,7 +21,7 @@ fixtures = do
   html: String fs.read-file-sync "#__dirname/fixtures/example1.swf.html"
   json: String fs.read-file-sync "#__dirname/fixtures/example1.swf.json"
 
-describe 'Ciatech ini Converter'
+describe 'gulp-swiffy Converter'
   ..add-batch do
     'A sample SWF file':
       topic: -> new File do
