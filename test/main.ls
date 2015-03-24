@@ -1,9 +1,9 @@
 require! {
   fs
   vows
-  \vows-at   : at
-  \../index  : plugin
-  \gulp-util : {File}
+  'vows-at': at
+  '../index': plugin
+  'gulp-util': {File}
 }
 
 function convert fmt, file, cb
@@ -17,7 +17,7 @@ function convert fmt, file, cb
 describe = vows~describe
 
 fixtures = do
-  swf: fs.read-file-sync "#__dirname/fixtures/example1.swf"
+  swf:  fs.read-file-sync "#__dirname/fixtures/example1.swf"
   html: String fs.read-file-sync "#__dirname/fixtures/example1.swf.html"
   json: String fs.read-file-sync "#__dirname/fixtures/example1.swf.json"
 
@@ -25,9 +25,9 @@ describe 'gulp-swiffy Converter'
   ..add-batch do
     'A sample SWF file':
       topic: -> new File do
-        cwd: \./projects
-        base: \./projects/xx000
-        path: \./projects/xx000/file.swf
+        cwd: './projects'
+        base: './projects/xx000'
+        path: './projects/xx000/file.swf'
         contents: fixtures.swf
 
       'when converted to HTML':
@@ -39,9 +39,9 @@ describe 'gulp-swiffy Converter'
 
     'Another SWF file':
       topic: -> new File do
-        cwd: \./projects
-        base: \./projects/xx000
-        path: \./projects/xx000/file.swf
+        cwd: './projects'
+        base: './projects/xx000'
+        path: './projects/xx000/file.swf'
         contents: fixtures.swf
 
       'when converted to JSON':
