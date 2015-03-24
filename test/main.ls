@@ -36,6 +36,13 @@ describe 'gulp-swiffy Converter'
           @equal (-> contents), fixtures.html
         'and should have the `swf.html` extension': at (file, contents) ->
           @equal (-> file.relative), \file.swf.html
+        'and messages should be in the `file.data.swiffy` object': at (file, contents) ->
+          @equal (-> file.data.swiffy.messages.length), 1
+          @equal (-> file.data.swiffy.messages.0.type), 'INFO'
+          @equal do
+            -> file.data.swiffy.messages.0.description
+            'Filters, blend modes and color-adjusted images may render slowly
+           \ on mobile devices.'
 
     'Another SWF file':
       topic: -> new File do
