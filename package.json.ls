@@ -1,5 +1,5 @@
 name: 'gulp-swiffy'
-version: '0.1.2'
+version: '1.0.0'
 description: 'Gulp plugin to convert SWF files with Google Swiffy.'
 main: 'index.js'
 
