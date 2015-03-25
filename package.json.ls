@@ -1,5 +1,5 @@
 name: 'gulp-swiffy'
-version: '1.0.0'
+version: '1.1.1'
 description: 'Gulp plugin to convert SWF files with Google Swiffy.'
 main: 'index.js'
 
@@ -15,7 +15,7 @@ repository:
     url: 'https://github.com/blvz/gulp-swiffy/issues'
 
 engines:
-  node: '>=0.11'
+  node: '>=0.10'
 
 scripts:
   prepublish: 'make metadata'
@@ -25,7 +25,7 @@ files: <[ index.js ]>
 
 dependencies:
   debug:                 '^2.1.3'
-  'swiffy-convert':      '^1.0.1'
+  'swiffy-convert':      '^1.1.1'
   'through2-concurrent': '^1.0.0'
 
 dev-dependencies:
